@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class TransactionController extends Controller
 {
     public function index()
-    {
+    {       
         $user_id = Auth::id();
         $transactions = CheckOut::whereJsonContains('check_out->user_id', $user_id)->get();
 
@@ -20,6 +20,8 @@ class TransactionController extends Controller
             foreach ($check_out['products'] as &$item) {
                 $product = Product::find($item['product_id']);
                 $item['product_name'] = $product ? $product->product_name : 'Unknown Product';
+                $item['CP'] = $product->product_cost_price;
+                $item['SP'] = $product->product_price;
             }
             $transaction->check_out = $check_out;
         }
@@ -52,6 +54,8 @@ class TransactionController extends Controller
             foreach ($check_out['products'] as &$item) {
                 $product = Product::find($item['product_id']);
                 $item['product_name'] = $product ? $product->product_name : 'Unknown Product';
+                $item['CP'] = $product->product_cost_price;
+                $item['SP'] = $product->product_price;
             }
             $transaction->check_out = $check_out;
         }

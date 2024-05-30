@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="card-body">
-                        @if (session('success'))
+                        {{-- @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
                             </div>
@@ -23,7 +23,7 @@
                             <div class="alert alert-danger" role="alert">
                                 {{ session('error') }}
                             </div>
-                        @endif
+                        @endif --}}
                         <div class="table-responsive">
                             <table id="example" class="display" style="width:100%">
                                 <thead>
@@ -32,6 +32,7 @@
                                         <th>Product name</th>
                                         <th>SKU</th>
                                         <th>Price</th>
+                                        <th>Cost Price</th>
                                         <th>Category</th>
                                         <th>Image</th>
                                         <th>Stock</th>
@@ -51,6 +52,7 @@
                                             <td>{{ $item->product_name }}</td>
                                             <td>{{ $item->product_sku }}</td>
                                             <td>Rs. {{$item->product_price}}</td>
+                                            <td>Rs. {{$item->product_cost_price}}</td>
                                             <td>{{$item->category}}</td>
                                             <td>
                                                 <img src="{{ asset($item->product_image) }}" alt="" width="150px">

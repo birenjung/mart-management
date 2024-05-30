@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthenticationController extends Controller
 {
@@ -34,13 +35,13 @@ class AuthenticationController extends Controller
         // check user
         $user = User::where('user_email', $email)->first();
         if (!$user) {
-            toastr()->error('Invalid email.');
+            Alert::info('Invalid email.');           
             return back();
         } elseif (Hash::check($password, $user->password)) {
             Auth::login($user);
             return redirect()->route('dashboard');
         }
-        toastr()->error('Invalid credentials.');
+        Alert::error('Invalid credentials.');      
         return back();
     }
 
@@ -69,8 +70,8 @@ class AuthenticationController extends Controller
 
             return redirect()->route('dashboard');
         } catch (\Exception $th) {
-            dd($th);
-            toastr()->error('Please try again.');
+            // dd($th);
+            Alert::info('Please try again');
             return back();
         }
     }
@@ -126,7 +127,7 @@ class AuthenticationController extends Controller
 
             return view('auth.passwords.success', compact('email'));
         }
-        toastr()->error('Invalid email');
+        Alert::info('Invalid email.');
         return back();
     }
 
@@ -157,11 +158,11 @@ class AuthenticationController extends Controller
 
             DB::table('password_reset_tokens')->where('email', $user->email)->delete();
 
-            toastr()->success('Your password is changed.');
+            Alert::success('Your password is changed.');           
             return redirect()->route('authentication.login');
         }
 
-        toastr()->error('Please try again.');
+        Alert::error('Please try again');       
         return back();
     }
 
@@ -170,19 +171,18 @@ class AuthenticationController extends Controller
         $user = User::where('user_email', $request->email)->first();
 
         if (!$user) {
-            toastr()->error('Invalid email');
+            Alert::info('Invalid email.');
             return back();
         } else {
             // Check if password and password confirmation match
             if ($request->password != $request->password_confirmation) {
-                toastr()->error('Password confirmation does not match');
+                Alert::error('Password confirmation does not match.');                
                 return back();
             }
 
             $user->password = Hash::make($request->password);
             $user->save();
-
-            toastr()->success('Your password has been changed!');
+            Alert::success('Your password has been changed!');     
             return back();
         }
     }

@@ -1,3 +1,18 @@
+/* trsnasctions */
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group .form-control {
+    flex: 1;
+    margin-right: 10px; /* Optional: adds space between the input and button */
+}
+
+.input-group .btn {
+    /* Ensure the button height matches the input field */
+}
+
 .content2 {
     margin-left: 268px;
 }

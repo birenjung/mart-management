@@ -38,7 +38,8 @@ class CartController extends Controller
 
     function addToCart($product_id, $quantity = 1)
     {
-        $user_id = auth()->id();
+        try {
+            $user_id = auth()->id();
         $todayDateTime = Carbon::now();
         // Check if the user has an existing cart
         $cart = Cart::whereJsonContains('cart_items->user_id', $user_id)->first();
@@ -118,6 +119,24 @@ class CartController extends Controller
 
             Alert::success('Success', 'The product is added to cart.');
             return back();
+        }
+        } catch (\Exception $th) {
+            //throw $th;
+            dd($th);
+        }
+    }
+
+
+    
+    private function updateProductStock($product_id, $quantity)
+    {
+        $product = Product::findOrFail($product_id);
+        $product->product_stock -= $quantity;
+    
+        if ($product->product_stock <= 0) {
+            $product->delete();
+        } else {
+            $product->save();
         }
     }
 

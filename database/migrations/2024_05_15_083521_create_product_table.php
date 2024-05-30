@@ -16,9 +16,11 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('product_sku');
             $table->float('product_price');
+            $table->float('product_cost_price');
             $table->unsignedInteger('product_stock')->default(1);
             $table->integer('product_category');
             $table->string('product_image')->nullable();
+            $table->bigInteger('credit')->nullable();
             $table->timestamps();
         });
     }

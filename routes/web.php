@@ -52,4 +52,6 @@ Route::group(['middleware' => ['auth']], function () {
     // transaction
     Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
     Route::post('/transaction', [TransactionController::class, 'search'])->name('transaction.search');
+    // fetch-monthly-profit
+    Route::post('/fetch-monthly-profit', [DashboardController::class, 'fetchMonthlyProfit']);
 });

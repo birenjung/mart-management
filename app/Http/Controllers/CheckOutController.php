@@ -27,6 +27,9 @@ class CheckOutController extends Controller
 
             $cart_items = $cart->cart_items['products'];
             foreach ($cart_items as &$item) {
+                $product = Product::find($item['product_id']);
+                $product->credit = $item['quantity'];
+                $product->save();
                 $item['sold_at'] = Carbon::now()->toDateTimeString();
             }
 
