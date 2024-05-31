@@ -44,7 +44,8 @@ class ProductController extends Controller
                 'product_price' => 'required|string',
                 'product_stock' => 'required|string',
                 'product_category' => 'required|numeric',
-                'product_image' => 'nullable|image', // Assuming you're uploading image files
+                'product_image' => 'nullable|image',
+                'product_cost_price' => 'required|string',
             ]);
 
             // Create a new product instance
@@ -52,6 +53,7 @@ class ProductController extends Controller
             $product->product_name = $validatedData['product_name'];
             $product->product_sku = $validatedData['product_sku'];
             $product->product_price = $validatedData['product_price'];
+            $product->product_cost_price = $validatedData['product_cost_price'];
             $product->product_stock = $validatedData['product_stock'];
             $product->product_category = $validatedData['product_category'];
 
@@ -116,11 +118,13 @@ class ProductController extends Controller
                 'product_stock' => 'required|string',
                 'product_category' => 'required|numeric',
                 'product_image' => 'nullable|image', // Assuming you're uploading image files
+                 'product_cost_price' => 'required|string',
             ]);            
            
             $product->product_name = $validatedData['product_name'];
             $product->product_sku = $validatedData['product_sku'];
             $product->product_price = $validatedData['product_price'];
+            $product->product_cost_price = $validatedData['product_cost_price'];
             $product->product_stock = $validatedData['product_stock'];
             $product->product_category = $validatedData['product_category'];
 

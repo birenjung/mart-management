@@ -24,7 +24,7 @@
             bottom: 0;
             left: 0;
             z-index: 1000;
-            overflow-y: auto;
+            /* overflow-y: auto; */
             /* background-color: #fff; */
             /* Add any other styling for the sidebar */
         }
@@ -74,6 +74,28 @@
                 </div>
             </div>
         </div>
+        {{-- <div class="top-bar d-flex justify-content-between align-items-center fixed-header">
+            <div class="">
+                <input type="text" placeholder="Search" class="dashboard-search">
+            </div>
+            <div class="dropdown" style="position: relative;">
+                <img src="{{ asset('image/user-avatar.png') }}" alt="" width="100%;" class="profile"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    onclick="toggleSubMenu()">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="submenu"
+                    style="position: absolute; right: 0;">
+                    <a class="dropdown-item" href="">Manage profile</a>
+                    <a class="dropdown-item" href="{{ route('authentication.logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('authentication.logout') }}" method="POST"
+                        class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </div>
+        </div> --}}
     </div>
 
     <div class="container-fluid">
@@ -85,7 +107,7 @@
                         <ul>
                             <li>
                                 <a href="{{ route('dashboard') }}"
-                                    class="dropdown-item {{ request()->routeIs('dashboard.index') ? 'dashboard-nav-active' : '' }}">
+                                    class="dropdown-item {{ request()->routeIs('dashboard') ? 'dashboard-nav-active' : '' }}">
                                     <i class="fa-solid fa-gauge"></i> Dashboard</a>
                             </li>
 
@@ -130,11 +152,11 @@
 
 
 
-                            <li>
+                            {{-- <li>
                                 <a href="" class="dropdown-item">
                                     <i class="fa-solid fa-gear"></i>
                                     Setting</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
@@ -142,6 +164,7 @@
 
             <div class="col-md-10 content2">
                 <div class="top-bar d-flex justify-content-between align-items-center fixed-header">
+                    
                     <div class="">
                         <input type="text" placeholder="Search" class="dashboard-search">
                     </div>

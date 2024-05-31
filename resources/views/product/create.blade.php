@@ -47,6 +47,23 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="product_price" class="col-md-4 col-form-label text-md-end">*Product
+                                    Cost Price</label>
+
+                                <div class="col-md-6">
+                                    <input id="product_cost_price" type="text"
+                                        class="form-control @error('product_cost_price') is-invalid @enderror"
+                                        name="product_cost_price" value="{{ old('product_cost_price') }}" autocomplete="name"
+                                        autofocus>
+
+                                    @error('product_cost_price')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="product_price" class="col-md-4 col-form-label text-md-end">*Product
                                     Price</label>
 
                                 <div class="col-md-6">

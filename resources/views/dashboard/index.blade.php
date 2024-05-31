@@ -4,7 +4,41 @@
 @endsection
 @section('content')
     <div class="container content">
-        <div class="row justify-content-center">
+        <div class="row dashboard-box">
+            <form action="" method="post" class="mb-3">
+                <select name="" id="">
+                    <option value="">All</option>
+                    <option value="">Today</option>
+                    <option value="">This week</option>
+                    <option value="">This month</option>                   
+                </select>
+            </form>
+            <div class="col-md-3">
+                <div class="card text-center p-2">
+                    <h4>Total Products</h4>
+                    <h4>{{ count($products) }}</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-2">
+                    <h4>Total Sales</h4>
+                    <h4>Rs. {{ $totalSales }}</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-2">
+                    <h4>Total Investment</h4>
+                    <h4>Rs. {{ $total_investment }}</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-2">
+                    <h4>Total Revenue</h4>
+                    <h4>Rs. {{ $totalSales - $totalCost }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
@@ -22,7 +56,7 @@
             </div>
             <div class="col-md-9">
                 <canvas id="monthlySalesChart"></canvas>
-                
+
             </div>
         </div>
         <div>

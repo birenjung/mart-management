@@ -9,9 +9,7 @@
     margin-right: 10px; /* Optional: adds space between the input and button */
 }
 
-.input-group .btn {
-    /* Ensure the button height matches the input field */
-}
+
 
 .content2 {
     margin-left: 268px;
@@ -291,6 +289,11 @@ body {
     margin: 0 auto;
 }
 
+.dashboard-box{
+    border: 1px solid #dcdde1;
+    padding: 20px;
+}
+
 
 
 
@@ -310,8 +313,43 @@ body {
     width: 100%;
     margin-top: 25px;
    }
-    .vertical-menu ul li a {
+    /* .vertical-menu ul li a {
         font-size: 0.8rem;
+    } */
+
+    .vertical-menu2 {
+        display: none;
+
+    }
+
+    .content2 {
+        width: 100%;
+        margin: 0;
+    }
+
+    .top-bar {
+        margin: 0 -1% 0 -1% ;
+        z-index: 0;
+    }
+
+    /* .fixed-sidebar {
+        position: relative;
+    } */
+
+    .fixed-header {
+        position: relative;
+    }
+
+    .header-for-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .content2 {
+        width: 100%;
+        /* position: relative; */
     }
 
     .check-icon {
@@ -344,24 +382,12 @@ body {
 @media (max-width: 1017px) {
 
 
-    .vertical-menu2 {
-        display: none;
-
-    }
-
-    .header-for-mobile {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
+   
 
 
 
 
-    .content2 {
-        width: 100%;
-    }
+  
 }
 
 @media (max-width: 992px) {

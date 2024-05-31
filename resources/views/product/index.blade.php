@@ -83,6 +83,7 @@
                                         <th>Product name</th>
                                         <th>SKU</th>
                                         <th>Price</th>
+                                        <th>Cost Price</th>
                                         <th>Category</th>
                                         <th>Image</th>
                                         <th>Stock</th>
